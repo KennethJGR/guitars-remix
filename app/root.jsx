@@ -1,5 +1,6 @@
-import { Meta, Links } from "@remix-run/react";
-import styles from "./styles/index.css";
+import { Meta, Links, Outlet, Scripts, LiveReload } from "@remix-run/react";
+import styles from "~/styles/index.css";
+import Header from "~/components/header";
 
 export function meta() {
     return {
@@ -17,7 +18,11 @@ export function links() {
         },
         { rel: "stylesheet", href: styles },
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
-        { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "true" },
+        {
+            rel: "preconnect",
+            href: "https://fonts.gstatic.com",
+            crossOrigin: "true",
+        },
         {
             rel: "stylesheet",
             href: "https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Outfit:wght@400;700;900&display=swap",
@@ -28,7 +33,7 @@ export function links() {
 export default function App() {
     return (
         <Document>
-            <h1>Guitar Remix</h1>
+            <Outlet />
         </Document>
     );
 }
@@ -40,7 +45,13 @@ function Document({ children }) {
                 <Meta />
                 <Links />
             </head>
-            <body>{children}</body>
+            <body>
+                <Header />
+                {children}
+
+                <Scripts />
+                <LiveReload />
+            </body>
         </html>
     );
 }
