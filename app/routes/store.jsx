@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { getGuitars } from "../../app/models/guitars.server.js";
 
-const Store = () => {
-  return (
-    <div>Store</div>
-  )
+export async function loader() {
+  getGuitars();
+
+  return import("./store");
 }
 
-export default Store
+const Store = () => {
+  return <div>Store</div>;
+};
+
+export default Store;

@@ -145,3 +145,10 @@ main {
 .footer .copyright {
     text-align: center;
 }
+
+.us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+}
