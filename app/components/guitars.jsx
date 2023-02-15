@@ -18,7 +18,7 @@ const Guitars = ({ guitar }) => {
                 <p className="price">${price}</p>
 
                 <Link to={`/guitars/${url}`}>
-                    <button className="btn">View</button>
+                    <button className="btn">View Product</button>
                 </Link>
             </div>
         </div>

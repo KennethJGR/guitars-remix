@@ -6,7 +6,7 @@ import Footer from "~/components/footer";
 export function meta() {
     return {
         charset: "utf-8",
-        title: "Guitar Remix",
+        title: "GuitarRemix",
         viewport: "width=device-width, initial-scale=1",
     };
 }

@@ -5,6 +5,14 @@ import Guitars from "~/components/guitars.jsx";
 
 import styles from "../styles/guitars.css";
 
+export function meta() {
+  return {
+    title: "Our Collection",
+    description: "Our collection of guitars",
+  };
+}
+
+
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
 }
