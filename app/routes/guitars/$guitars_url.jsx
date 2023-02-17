@@ -3,7 +3,25 @@ import { getGuitar } from "~/models/guitars.server";
 import { useLoaderData } from "@remix-run/react";
 import styles from "~/styles/guitars.css";
 
+export async function loader(request) {
+    const { guitars_url } = request.params;
+    const guitar = await getGuitar(guitars_url);
+
+    if (guitar.data.length === 0) {
+        throw new Response("Not found", { status: 404, statusText: " Guitar not found" });
+    }
+
+    return guitar;
+}
+
 export function meta({ data }) {
+    if (!data) {
+        return {
+            title: `GuitarRemix - Not Found`,
+            description: `Guitars, Guitar store, guitar not found`,
+        };
+    }
+
     return {
         title: `GuitarRemix - ${data.data[0].attributes.name}`,
         description: `Guitars, Guitar store, guitar ${data.data[0].attributes.name}`,
@@ -12,13 +30,6 @@ export function meta({ data }) {
 
 export function links() {
     return [{ rel: "stylesheet", href: styles }];
-}
-
-export async function loader(request) {
-    const { guitars_url } = request.params;
-    const guitar = await getGuitar(guitars_url);
-
-    return guitar;
 }
 
 const Guitars = () => {
