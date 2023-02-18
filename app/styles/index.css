@@ -168,3 +168,22 @@ display: block;
     font-size: 2rem;
 
 }
+
+.btn {
+    margin-top: 2rem;
+    display: block;
+    padding: 1rem;
+    background-color: black;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: var(--primary);
+}

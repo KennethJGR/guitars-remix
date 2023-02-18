@@ -4,7 +4,7 @@ import { Link } from "@remix-run/react";
 const Guitars = ({ guitar }) => {
     const { name, price, description, image, url } = guitar;
 
-    console.log();
+    console.log(guitar);
     return (
         <div className="guitars">
             <img
