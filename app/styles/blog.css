@@ -44,8 +44,19 @@
     overflow: hidden;
 }
 
-
-.date{
+.date {
     font-size: 2.5rem;
     color: var(--primary);
+}
+
+.blogpost {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 80rem;
+    margin: 3rem auto 0 auto;
+}
+
+.blogpost .text {
+    white-space: pre-wrap;
 }
