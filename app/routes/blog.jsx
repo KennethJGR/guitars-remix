@@ -1,17 +1,24 @@
 import React from "react";
 import { useLoaderData } from "@remix-run/react";
-import Post from "~/components/post";
+import PostList from "~/components/post_list";
 import { getPosts } from "~/models/posts.server.js";
 import styles from "~/styles/blog.css";
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
 }
- 
+
 export async function loader() {
   const post = await getPosts();
 
   return post.data;
+}
+
+export function meta() {
+  return {
+    title: "GuitarRemix-Blog",
+    description: "A blog about the web",
+  };
 }
 
 const Blog = () => {
@@ -19,12 +26,7 @@ const Blog = () => {
 
   return (
     <main className="container">
-      <h2 className="heading"> Blog </h2>
-      <div className="blog">
-        {posts.map((post) => (
-          <Post post={post.attributes} key={post.id} />
-        ))}
-      </div>
+      <PostList posts={posts} />
     </main>
   );
 };
