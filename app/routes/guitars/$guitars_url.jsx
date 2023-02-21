@@ -5,11 +5,14 @@ import styles from "~/styles/guitars.css";
 
 export async function loader(request) {
     const { guitars_url } = request.params;
-    console.log(request.params);
+
     const guitar = await getGuitar(guitars_url);
 
     if (guitar.data.length === 0) {
-        throw new Response("Not found", { status: 404, statusText: " Guitar not found" });
+        throw new Response("Not found", {
+            status: 404,
+            statusText: " Guitar not found",
+        });
     }
 
     return guitar;

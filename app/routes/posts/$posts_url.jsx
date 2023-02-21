@@ -43,7 +43,6 @@ const Posts = () => {
 
     const { Title, Content, image, url, publishedAt } = post?.data[0]?.attributes;
 
-    console.log(post);
 
     return (
         <article className="blogpost content">
