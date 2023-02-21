@@ -4,7 +4,6 @@ import { Link } from "@remix-run/react";
 const Guitars = ({ guitar }) => {
     const { name, price, description, image, url } = guitar;
 
-
     return (
         <div className="guitars">
             <img
@@ -24,5 +23,4 @@ const Guitars = ({ guitar }) => {
         </div>
     );
 };
-
 export default Guitars;

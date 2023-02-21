@@ -50,9 +50,7 @@ const Index = () => {
 
     return (
         <>
-            <h1
-            className="heading"
-             >Welcome to GuitarRemix</h1>
+            <h1 className="heading">Welcome to GuitarRemix</h1>
             <main className="content">
                 <GuitarList guitars={guitars} />
             </main>

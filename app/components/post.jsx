@@ -14,7 +14,7 @@ export default function Post({ post }) {
                     <small>{formatDate(publishedAt)}</small>
                 </p>
                 <p className="resume">{Content}</p>
-                <Link to={`/posts/${url}`} className="btn">
+                <Link to={`/blog/${url}`} className="btn">
                     Read more
                 </Link>
             </div>
