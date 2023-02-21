@@ -1,6 +1,6 @@
 import React from "react";
-import { useLoaderData } from "@remix-run/react";
-import { getGuitars } from "../../app/models/guitars.server.js";
+import { useLoaderData,Outlet } from "@remix-run/react";
+import { getGuitars } from "../models/guitars.server.js";
 import GuitarList from "~/components/guitar_list.jsx";
 
 import styles from "../styles/guitars.css";
@@ -28,6 +28,7 @@ const Store = () => {
   return (
     <main className="container">
       <GuitarList guitars={guitars} />
+      <Outlet />
     </main>
   );
 };

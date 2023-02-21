@@ -1,5 +1,5 @@
 import React from "react";
-import Guitars from "./guitars";
+import Guitars from "./guitar";
 
 const GuitarList = ({ guitars }) => {
     return (
