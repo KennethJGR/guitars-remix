@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { getGuitar } from "~/models/guitars.server";
 import { useLoaderData } from "@remix-run/react";
 import styles from "~/styles/guitars.css";
@@ -37,6 +38,28 @@ export function links() {
 }
 
 const Guitars = () => {
+    const [quantity, setQuantity] = useState(0);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (quantity === 0 ) {
+            alert("Please select a quantity");
+            return;
+        }
+
+        const guitarSelect = {
+            id:guitar.data[0].id,
+            name,
+            price,
+            quantity,
+            image: image.data.attributes.formats.medium.url,
+
+        }
+
+        console.log(guitarSelect);
+    };
+
     const guitar = useLoaderData();
     const { name, price, description, image } = guitar.data[0].attributes;
 
@@ -51,6 +74,22 @@ const Guitars = () => {
                 <h3>{name}</h3>
                 <p className="text">{description}</p>
                 <p className="price">${price}</p>
+                <form onSubmit={handleSubmit} className="form" action="">
+                    <label htmlFor="quantity">Quantity</label>
+                    <select
+                        onChange={(e) => setQuantity(parseInt(e.target.value))}
+                        name="quantity"
+                        id="quantity"
+                    >
+                        <option value="0">- Select -</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <input type="submit" value="Add to cart" />
+                </form>
             </div>
         </main>
     );

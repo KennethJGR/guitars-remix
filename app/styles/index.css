@@ -70,6 +70,7 @@ main {
 
 .header .navigation {
     display: flex;
+    align-items: center;
     gap: 2rem;
     margin-top: 5rem;
 }
@@ -90,6 +91,10 @@ main {
     padding: 0.5rem;
     transition-property: color;
     transition-duration: 300ms;
+}
+
+.header .navigation img {
+    width: 3rem;
 }
 
 .header .navigation a:hover,
@@ -138,6 +143,10 @@ main {
     transition-duration: 300ms;
 }
 
+.footer .navigation a:last-of-type {
+    display: none;
+}
+
 .footer .navigation a:hover {
     color: var(--primary);
 }
@@ -152,21 +161,20 @@ main {
     align-items: center;
     margin-top: 5rem;
 }
-.error, .error-link{
+
+.error,
+.error-link {
     margin-top: 5rem;
     font-size: 2.5rem;
     text-align: center;
     font-weight: bold;
-   
-
 }
 
-.error-link{
-display: block;
+.error-link {
+    display: block;
     color: var(--primary);
     text-decoration: none;
     font-size: 2rem;
-
 }
 
 .btn {
@@ -182,6 +190,7 @@ display: block;
     font-weight: bold;
     text-transform: uppercase;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .btn:hover {
