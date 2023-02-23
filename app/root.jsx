@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
     Meta,
     Links,
@@ -40,9 +41,17 @@ export function links() {
 }
 
 export default function App() {
+    const [cart, setCart] = useState([]);
+
+    const addToCart = (guitar) => { };
+
     return (
         <Document>
-            <Outlet />
+            <Outlet
+                context={{
+                    addToCart,
+                }}
+            />
         </Document>
     );
 }
@@ -78,7 +87,9 @@ export function CatchBoundary() {
                     {error.status}
                     {error.statusText}{" "}
                 </h1>
-                <Link to="/" className="error-link">Click here to go back</Link>
+                <Link to="/" className="error-link">
+                    Click here to go back
+                </Link>
             </Document>
         </div>
     );
@@ -92,7 +103,9 @@ export function ErrorBoundary({ error }) {
                     {error.status}
                     {error.statusText}{" "}
                 </h1>
-                <Link to="/" className="error-link">Click here to go back</Link>
+                <Link to="/" className="error-link">
+                    Click here to go back
+                </Link>
             </Document>
         </div>
     );

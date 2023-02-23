@@ -1,7 +1,6 @@
-import React from "react";
 import { useState } from "react";
 import { getGuitar } from "~/models/guitars.server";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useOutletContext } from "@remix-run/react";
 import styles from "~/styles/guitars.css";
 
 export async function loader(request) {
@@ -38,26 +37,28 @@ export function links() {
 }
 
 const Guitars = () => {
+
+    const { addToCart } = useOutletContext();
+
     const [quantity, setQuantity] = useState(0);
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (quantity === 0 ) {
+        if (quantity === 0) {
             alert("Please select a quantity");
             return;
         }
 
         const guitarSelect = {
-            id:guitar.data[0].id,
+            id: guitar.data[0].id,
             name,
             price,
             quantity,
             image: image.data.attributes.formats.medium.url,
+        };
 
-        }
-
-        console.log(guitarSelect);
     };
 
     const guitar = useLoaderData();
