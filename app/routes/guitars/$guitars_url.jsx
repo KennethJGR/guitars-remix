@@ -37,11 +37,9 @@ export function links() {
 }
 
 const Guitars = () => {
-
     const { addToCart } = useOutletContext();
 
     const [quantity, setQuantity] = useState(0);
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -58,7 +56,8 @@ const Guitars = () => {
             quantity,
             image: image.data.attributes.formats.medium.url,
         };
-
+        
+        addToCart(guitarSelect);
     };
 
     const guitar = useLoaderData();

@@ -43,13 +43,28 @@ export function links() {
 export default function App() {
     const [cart, setCart] = useState([]);
 
-    const addToCart = (guitar) => { };
-
+    const addToCart = (guitar) => {
+        if (cart.some((item) => item.id === guitar.id)) {
+            const newCart = cart.map((item) => {
+                if (item.id === guitar.id) {
+                    return {
+                        ...item,
+                        quantity: item.quantity + guitar.quantity,
+                    };
+                }
+                return item;
+            });
+            setCart(newCart);
+        } else {
+            setCart([...cart, guitar]);
+        }
+    };
     return (
         <Document>
             <Outlet
                 context={{
                     addToCart,
+                    cart
                 }}
             />
         </Document>
